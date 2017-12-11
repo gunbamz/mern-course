@@ -23,3 +23,10 @@ This is a rough guideline of what a user will do when using the app:
   - Emails: 3rd Party Email Provider
   - Surveys: Email Provider, Express, Mongo
   - Tabulating: Mongo
+
+## Architecture
+
+### Node vs. Express
+In short: Node is a JavaScript runtime environment to execute JS outside of the browser. Express is a library that runs in node and makes working with HTTP easier.
+
+Node will wait for information (HTTP request) to come through a port, and then hand it off to Express to decide what will happen with it. Express' route handlers will interface with MongoDB, and formulate a response to hand back to Node, and then off to the user with an HTTP response.
