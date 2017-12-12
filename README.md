@@ -1,6 +1,6 @@
 # Learning Readme
 
-This app is what I worked on in Stephen Grinder's Udemy course Node with [React: Fullstack Web Development](https://github.com/StephenGrider/FullstackReactCode). It is an app that will get feedback from imaginary users of an app. The following is the learning readme, which outlines what the app will do and how it will do it.
+This app is what I worked on in Stephen Grinder's Udemy course [Node with React: Fullstack Web Development](https://github.com/StephenGrider/FullstackReactCode). It is an app that will get feedback from imaginary users of an app. The following is the learning readme, which outlines what the app will do and how it will do it.
 You can find the app I built [here](https://protected-garden-75366.herokuapp.com/).
 
 ## Process
