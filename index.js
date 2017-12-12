@@ -1,5 +1,7 @@
 // backend must use ES5 requre syntax
 const express = require("express");
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 // creates running express application in node
 const app = express();
 

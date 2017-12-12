@@ -11,6 +11,7 @@
     "start": "node index.js"
   },
   "author": "",
+  "repository": "https://github.com/ldtcooper/mern-course.git",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
