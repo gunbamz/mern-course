@@ -40,3 +40,6 @@ Node will wait for information (HTTP request) to come through a port, and then h
 
 ## OAuth
 Passport is a auth middleware for Node. It handles auth in general, but has plugins (strategies) for specific types of auth. We are going to use just one strategy: the one for Google.
+
+### Authentication Theory
+Cookie-based authentication: Because HTTP is stateless, logging in cannot be managed without a permanent identifier like a cookie or an token. After a user goes through the auth process, the server will create an identifying piece of information and store it on the user's device as a cookie. The browser will then provide that cookie with every subsequent request to the server.
