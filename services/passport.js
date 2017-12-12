@@ -1,3 +1,7 @@
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const keys = require("../config/keys");
+
 // tells passport which strategies to use
 // arguments: object with clientID, clientSecret args, and route; accessToken callback
 passport.use(

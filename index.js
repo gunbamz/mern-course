@@ -1,13 +1,12 @@
 // backend must use ES5 requre syntax
 const express = require("express");
-const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const keys = require("./config/keys");
+require("./services/passport");
 
 // creates running express application in node
 const app = express();
 
-
+// calls function in authRoutes.js and attatches app object
+require("./routes/auth_routes")(app);
 
 // .get tells the express app to listen for a GET request to the route '/'
 app.get('/', (req, res) => {
@@ -16,10 +15,7 @@ app.get('/', (req, res) => {
   res.send({hi: 'there'});
 });
 
-
-
 // dynamic port binding: listen's for Heroku's environment variable PORT
 // if no environment variable, use 5000
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT);
