@@ -33,7 +33,10 @@ In short: Node is a JavaScript runtime environment to execute JS outside of the 
 Node will wait for information (HTTP request) to come through a port, and then hand it off to Express to decide what will happen with it. Express' route handlers will interface with MongoDB, and formulate a response to hand back to Node, and then off to the user with an HTTP response.
 
 ### Deployment Checklist
-- [x] Dynamic Port Binding: Which port will Heroku listen for?
-- [x] Specify Node Environment: Which Node version will Heroku's servers run?
-- [x] Start Script: How should Heroku start the server?
-- [x] Create .gitignore: Which files should not be uploaded to the internet?
+  - [x] Dynamic Port Binding: Which port will Heroku listen for?
+  - [x] Specify Node Environment: Which Node version will Heroku's servers run?
+  - [x] Start Script: How should Heroku start the server?
+  - [x] Create .gitignore: Which files should not be uploaded to the internet?
+
+## OAuth
+Passport is a auth middleware for Node. It handles auth in general, but has plugins (strategies) for specific types of auth. We are going to use just one strategy: the one for Google.
