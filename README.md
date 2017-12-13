@@ -43,3 +43,7 @@ Passport is a auth middleware for Node. It handles auth in general, but has plug
 
 ### Authentication Theory
 Cookie-based authentication: Because HTTP is stateless, logging in cannot be managed without a permanent identifier like a cookie or an token. After a user goes through the auth process, the server will create an identifying piece of information and store it on the user's device as a cookie. The browser will then provide that cookie with every subsequent request to the server.
+
+## MongoDB
+MongoDB is a schemaless way of storing data based on collections, which are basically sets of key-value pairs.
+Mongoose is a JavaScript ORM for MongoDB. Mongoose Model Classes represent collections, and Model Instances represent representing records.

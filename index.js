@@ -1,6 +1,10 @@
 // backend must use ES5 requre syntax
 const express = require("express");
+const mongoose = require("mongoose");
+const keys = require("./config/keys");
 require("./services/passport");
+
+mongoose.connect(keys.mongoURI);
 
 // creates running express application in node
 const app = express();
