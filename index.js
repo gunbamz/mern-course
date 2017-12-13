@@ -1,6 +1,8 @@
 // backend must use ES5 requre syntax
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
 const keys = require("./config/keys");
 require('./models/user');
 require("./services/passport");
@@ -9,6 +11,22 @@ mongoose.connect(keys.mongoURI);
 
 // creates running express application in node
 const app = express();
+
+// allows express to use cookies
+app.use(
+  // cookieSession takes configuration information
+  cookieSession({
+    // maxAge is how long cookie will last
+    // here is 30 days in milliseconds
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    // cookie key will encrypt cookie and should not be committed
+    keys: keys.cookieKeys
+  })
+);
+
+// tells app to use cookies
+app.use(passport.initialize());
+app.use(passport.session());
 
 // calls function in authRoutes.js and attatches app object
 require("./routes/auth_routes")(app);

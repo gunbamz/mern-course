@@ -12,6 +12,13 @@ passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
+// takes in a user id from a cookie and finds the corresponding user
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+    done(null, user);
+  });
+});
+
 // tells passport which strategies to use
 // arguments: object with clientID, clientSecret args, and route; accessToken callback
 passport.use(
