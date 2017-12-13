@@ -14,7 +14,15 @@ passport.use(
     clientSecret: keys.googleClientSecret,
     callbackURL: '/auth/google/callback'
   }, (accessToken, refreshToken, profile, done) => {
-    // upon successful signup, create new user in DB and save it
-    new User({googleId: profile.id}).save();
+    // queries DB for a user with the given googleId
+    // this is an async action
+    User.findOne({ googleId: profile.id }).then((existingUser) => {
+      if (existingUser) {
+        // already have record with ID
+      } else {
+        // no user record -- create new user
+        new User({googleId: profile.id}).save();
+      }
+    });
   }
 ));
