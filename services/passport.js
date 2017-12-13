@@ -6,6 +6,12 @@ const keys = require("../config/keys");
 // create model class for users
 const User = mongoose.model('users');
 
+// creates a token from the user for future authentication
+passport.serializeUser((user, done) => {
+  // user.id is MongoDB's record id
+  done(null, user.id);
+});
+
 // tells passport which strategies to use
 // arguments: object with clientID, clientSecret args, and route; accessToken callback
 passport.use(
@@ -19,9 +25,17 @@ passport.use(
     User.findOne({ googleId: profile.id }).then((existingUser) => {
       if (existingUser) {
         // already have record with ID
+        // done function tells passport that everything is done
+        done(null, existingUser);
       } else {
-        // no user record -- create new user
-        new User({googleId: profile.id}).save();
+        // no user record -- create and save new user
+        // this is also async
+        new User({googleId: profile.id})
+        .save()
+        .then((user) => {
+          // done takes an error argument and a user object
+          done(null, user);
+        });
       }
     });
   }
