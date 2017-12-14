@@ -25,7 +25,9 @@ passport.use(
   new GoogleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
-    callbackURL: '/auth/google/callback'
+    callbackURL: '/auth/google/callback',
+    // okays requests from proxies -- i.e. Heroku's load balancer
+    proxy: true
   }, (accessToken, refreshToken, profile, done) => {
     // queries DB for a user with the given googleId
     // this is an async action
