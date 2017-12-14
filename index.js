@@ -20,7 +20,7 @@ app.use(
     // here is 30 days in milliseconds
     maxAge: 30 * 24 * 60 * 60 * 1000,
     // cookie key will encrypt cookie and should not be committed
-    keys: keys.cookieKeys
+    keys: [keys.cookieKey]
   })
 );
 
