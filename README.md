@@ -52,3 +52,27 @@ Mongoose is a JavaScript ORM for MongoDB. Mongoose Model Classes represent colle
 
 ### Proxy Field
 If anyone tries to visit the localhost:3000 version of the /auth/google route, this field will forward it on to the localhost:5000 version of it. However, this discrepancy does not exist in production because of how create-react-app makes production builds.
+
+### Async/Await
+Allows us to skirt using explicit promises and `.then()` syntax.
+The following is a function that uses `fetch` to get some JSON data from an API and uses `.then` to manage promises:
+
+  ```javascript
+  const fetchAlbums = function fetchAlbums() {
+    fetch("https://rallycoding.herokuapp.com/api/music_albums")
+    .then((res) => res.json())
+    .then((json) => console.log(json))
+  };
+  ```
+
+This is the same function redone with `async/await`:
+
+  ```javascript
+  const fetchAlbums = async function fetchAlbums() {
+    const res = await fetch("https://rallycoding.herokuapp.com/api/music_albums");
+    const json = await res.json();
+    console.log(json);
+  };
+  ```
+
+Instead of chaining on `.then` with a function each time you need a promise object, you can designate the whole function as an async function and assign each promise to a variable with `await`.
