@@ -76,3 +76,13 @@ This is the same function redone with `async/await`:
   ```
 
 Instead of chaining on `.then` with a function each time you need a promise object, you can designate the whole function as an async function and assign each promise to a variable with `await`.
+
+The function could be refactored further to use arrow functions:
+
+  ```javascript
+  const fetchAlbums = async () => {
+    const res = await fetch("https://rallycoding.herokuapp.com/api/music_albums");
+    const json = await res.json();
+    console.log(json);
+  }
+  ```
