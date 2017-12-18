@@ -47,3 +47,8 @@ Cookie-based authentication: Because HTTP is stateless, logging in cannot be man
 ## MongoDB
 MongoDB is a schemaless way of storing data based on collections, which are basically sets of key-value pairs.
 Mongoose is a JavaScript ORM for MongoDB. Mongoose Model Classes represent collections, and Model Instances represent representing records.
+
+## Frontend
+
+### Proxy Field
+If anyone tries to visit the localhost:3000 version of the /auth/google route, this field will forward it on to the localhost:5000 version of it. However, this discrepancy does not exist in production because of how create-react-app makes production builds.
