@@ -10,7 +10,7 @@ const App = () => {
   // react router greedily matches paths
   // all components that match a path will be rendered
   return(
-    <div>
+    <div className="container">
       <BrowserRouter>
         <div>
           <Header />
