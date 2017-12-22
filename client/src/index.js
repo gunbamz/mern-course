@@ -10,7 +10,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import reducers from './reducers';
 import App from './components/App';
 
-const store = createStore(reducers, {}, applyMiddleware());
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <Provider store={store}><App /></Provider>,

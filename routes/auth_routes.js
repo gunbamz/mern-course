@@ -8,12 +8,15 @@ module.exports = (app) => {
     '/auth/google',
     passport.authenticate('google', {
       scope: ['profile', 'email']
-    }
-  ));
+    }));
 
   // route used for sending secret code back to google
   app.get(
-    '/auth/google/callback', passport.authenticate('google')
+    '/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }
   );
 
   app.get('/api/logout', (req, res) => {

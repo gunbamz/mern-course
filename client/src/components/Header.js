@@ -1,8 +1,22 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return(
+          <li><a href="/auth/google">Login with Google</a></li>
+        );
+      default:
+        return(
+          <li>
+            <a>Logout</a>
+          </li>
+        );
+    }
   }
 
   render() {
@@ -11,7 +25,7 @@ class Header extends React.Component {
         <a className="left brand-logo">Emaily</a>
         <ul className="right">
           <li>
-            <a>Login with Google</a>
+            {this.renderContent()}
           </li>
         </ul>
       </div>
@@ -19,4 +33,8 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+const mapStateToProps = function mapStateToProps({auth}) {
+  return {auth};
+};
+
+export default connect(mapStateToProps)(Header);
