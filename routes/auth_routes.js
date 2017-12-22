@@ -23,7 +23,7 @@ module.exports = (app) => {
     // automatically kills cookie, destroying a user's current session
     req.logout();
     // sends out an undefined user object
-    res.send(req.user);
+    res.redirect('/');
   });
 
   app.get('/api/current_user', (req, res) => {
