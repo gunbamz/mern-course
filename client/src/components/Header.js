@@ -13,11 +13,14 @@ class Header extends React.Component {
           <li><a href="/auth/google">Login with Google</a></li>
         );
       default:
-        return(
-          <li>
+        return([
+          <li key={0}>
+            <Payments />
+          </li>,
+          <li key={1}>
             <a href="/api/logout">Logout</a>
           </li>
-        );
+        ]);
     }
   }
 
@@ -26,9 +29,7 @@ class Header extends React.Component {
       <div className="nav-wrapper">
         <Link to={this.props.auth ? '/surveys' : '/'} className="left brand-logo">Emaily</Link>
         <ul className="right">
-          <li>
-            {this.renderContent()}
-          </li>
+          {this.renderContent()}
         </ul>
       </div>
     </nav>);
