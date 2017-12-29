@@ -29,7 +29,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // calls function in authRoutes.js and attatches app object
-require("./routes/auth_routes")(app);
+require('./routes/auth_routes')(app);
+require('./routes/billing_routes')(app);
 
 // .get tells the express app to listen for a GET request to the route '/'
 app.get('/', (req, res) => {
